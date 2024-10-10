@@ -27,7 +27,7 @@ public class TargetX : MonoBehaviour
     }
 
     // When target is clicked, destroy it, update score, and generate explosion
-    private void OnMouseEnter()
+    private void OnMouseDown()
     {
         if (gameManagerX.isGameActive)
         {
@@ -61,7 +61,7 @@ public class TargetX : MonoBehaviour
     {
         Destroy(gameObject);
 
-        if (other.gameObject.CompareTag("Sensor") && !gameObject.CompareTag("Bad"))
+        if ((other.gameObject.CompareTag("Sensor") && !gameObject.CompareTag("Bad")) || gameManagerX.timer < 0)
         {
             gameManagerX.GameOver();
         } 
